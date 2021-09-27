@@ -1,5 +1,6 @@
 import React from 'react'
 import Loader from './Loader'
+import SingleProductTable from './SingleProductTable'
 import Image from 'next/image'
 
 type GetProductDataProps = {
@@ -19,30 +20,10 @@ const ProductTable = ({ data }: any) => {
                             ?
                             <div className='product-table-wrapper'>
                                 {result.map((data: any) => (
-                                    <div key={data?.id} className='single-product-item'>
-                                        
-                                        <div className='single-product-item-img'>
-                                            <img
-                                                src={data?.api_featured_image}
-                                                alt={data?.name}
-                                            />
-                                        </div>
-                                        <div className='single-product-item-text'>
-                                            <div >
-                                                <span
-                                                    style={{fontSize: 20, fontWeight: 500}}
-                                                >{data?.name}</span>
-                                            </div>
-                                            <div >
-                                                <span
-                                                    style={{fontSize: 18}}
-                                                >{data?.brand}</span>
-                                            </div>
-                                            <div >
-                                                <span>{data?.product_type}</span>
-                                            </div>   
-                                    </div> 
-                                    </div>
+                                    <SingleProductTable
+                                        data={data}
+                                        key={data.id}
+                                    />
                                 )
                                 )}
                             </div>
