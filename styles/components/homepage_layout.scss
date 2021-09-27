@@ -7,14 +7,12 @@
   background-color: $semi-light-green;
 }
 .header{
-    background-color: inherit;
     padding: 20px 0;
     h2{ 
         background: linear-gradient(90deg, rgba(158, 0, 236,1) 20.5%,rgba(158, 0, 235,1) 20.5%,rgba(243, 72, 104,1) 80.5%);
         font-weight: bolder;
         font-size: 5em;
         margin: 0;
-        background-color: inherit;
         font-family: 'Bonheur Royale', cursive;
         user-select: none;
         padding: 20px 0;
@@ -22,19 +20,24 @@
        -webkit-text-fill-color: transparent;
     }
 }
+.ant-layout-sider-children{
+    margin: 0 10px;
+}
 .search-result-container{
-    display: flex;
-    flex-direction: column;
-    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
     width: 1024px;
     margin: 0 auto;
     min-height: 50vh;
     padding: 10px 0;
-    input{
-        width: 400px;
+    .product-table{
+        display: flex;
+        flex-direction: column;
+        input{
+        width: 100%;
         font-size: 18px;
         margin: 0 auto;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
         padding: 15px;
         border-radius: 15px;
         background-color:  $search-input-bg-color;
@@ -62,22 +65,29 @@
             border: none;
         }
     }
+    }
 }
 .product-table-container{
         min-height: 100vh;
+}
+.ant-layout-content{
+    
 }
 .product-table-wrapper{
     margin: 20px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px;
-    background-color: transparent;
     .single-product-item{
+        border-radius: 10px;
         background-color: white;
         .single-product-item-img{
-            height: 350px;
+            height: 300px;
             overflow: hidden;
+            text-align: center;
             img{
+            border-radius: 10px 10px 0 0;    
+            display: block;
             height: 100%;
             width: 100%;
             object-fit: cover;
@@ -95,7 +105,6 @@
 }
 /* Loader CSS rules*/
 .loader-container{
-    background-color: transparent;
     height: 500px;
     width: 100%;
     display: flex;
@@ -153,4 +162,30 @@
         100%{
             transform: translateY(0);
         }
+}
+/*CSS RULES FOR FILTER*/
+.filter-container{
+    width: 200px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .brand-filter-container{
+        background-color: white;
+        width: 100%;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .filter-title{
+        width: 100%;
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eeeeee;
+    }
+    .single-radio-input{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 0;
+}
 }
