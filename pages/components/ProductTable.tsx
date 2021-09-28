@@ -5,9 +5,11 @@ import Image from 'next/image'
 
 type GetProductDataProps = {
     data: {
-    }[]
+        result: any
+        loading: boolean
+    }
 }
-const ProductTable = ({ data }: any) => {
+const ProductTable = ({ data }: GetProductDataProps) => {
     const {result , loading} = data
     return (
         <div className='product-table-container'>
