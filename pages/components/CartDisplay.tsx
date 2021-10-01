@@ -1,5 +1,5 @@
 import React from 'react'
-import ShoppingCartOutlined from '@ant-design/icons' 
+import {ShoppingCartOutlined} from '@ant-design/icons' 
 type GetStyleProps = {
     style : React.CSSProperties
 }
