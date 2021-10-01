@@ -79,6 +79,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px;
     .single-product-item{
+        position: relative;
+        overflow: hidden;
         border-radius: 10px;
         background-color: white;
         .single-product-item-img{
@@ -100,6 +102,19 @@
         }
         .single-product-item-text{
            padding: 20px;
+           margin-bottom: 40px;
+        }
+        .single-product-add-to-cart{
+            background-color: black;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 20px;
+            text-align: center;
+            color: white;
+            padding: 15px 0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
         }
     }
 }
