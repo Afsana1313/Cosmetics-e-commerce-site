@@ -44,7 +44,7 @@ const SearchResult = () => {
                     data={data}
                 />
                 <CartDisplay
-                
+                   style={{background: 'transparent'}}
                 />
               </div>  
                          
