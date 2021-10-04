@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import Loader from './Loader'
 import SingleProductTable from './SingleProductTable'
 import Image from 'next/image'
@@ -8,9 +8,15 @@ type GetProductDataProps = {
         result: any
         loading: boolean
     }
+    price: (a: number) => void
+    productsInCart: (data: any) => void
 }
-const ProductTable = ({ data }: GetProductDataProps) => {
-    const {result , loading} = data
+const ProductTable = ({ data, price, productsInCart }: GetProductDataProps) => {
+    const { result, loading } = data
+    const [totalPrice, setTotalPrice] = useState<number>(0)
+    useEffect(() => {
+        price(totalPrice)
+    }, [totalPrice])
     return (
         <div className='product-table-container'>
             {
@@ -25,6 +31,11 @@ const ProductTable = ({ data }: GetProductDataProps) => {
                                     <SingleProductTable
                                         data={data}
                                         key={data.id}
+                                        setPrice={(a) => {
+                                            console.log(totalPrice + parseFloat(a))
+                                            setTotalPrice(totalPrice + parseFloat(a))
+                                        }}
+                                        productsInCart={(data: any)=> productsInCart(data)}
                                     />
                                 )
                                 )}
