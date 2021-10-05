@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ChangeEvent, MouseEvent } from 'react'
 import ProductTable from './ProductTable'
 import Filter from './Filter'
+import Cart from './cart/Cart'
 import CartDisplay from './cart/CartDisplay'
 
 type cartType = {
@@ -13,6 +14,7 @@ const SearchResult = () => {
     const [productType, setProductType] = useState('')
     const [brand, setBrand] = useState('')
     const [cartValue, setCartValue] = useState<number>(0)
+    const [showCartDisplay, setShowCartDisplay] = useState(false)
     const [cartData, setCartData] = useState<cartType>({} as cartType)
     useEffect(() => {
         if (true) {
@@ -26,7 +28,7 @@ const SearchResult = () => {
                     setData({result: data, loading: false})
                 })
        }
-    }, [productType,brand])
+    }, [productType, brand])
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setProductType(e.currentTarget.value);
     }
@@ -54,11 +56,19 @@ const SearchResult = () => {
                     }}
                     productsInCart={(data: any)=> setCartData(data)}
                 />
-                <CartDisplay
-                    style={{ background: 'transparent' }}
+                <div
+                   onClick={() => setShowCartDisplay(true)}
+                >
+                    <Cart
+                        style={{ background: 'transparent' }}
+                        cartValue={cartValue}
+                        />
+                </div>
+                {showCartDisplay && <CartDisplay
                     cartValue={cartValue}
                     cartProduct={cartData}
-                />
+                />}
+                
               </div>  
                          
                   
