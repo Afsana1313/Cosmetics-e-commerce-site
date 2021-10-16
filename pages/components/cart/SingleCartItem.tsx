@@ -16,7 +16,7 @@ const SingleCartItem = ({key, name, price, imgLink}:getCartProps) => {
                     src={imgLink}
                     alt={name}
                 />
-                <h1 className='single-cart-item-header'>Name: {name}</h1>
+                <h2 className='single-cart-item-header'>Name: {name}</h2>
                 <strong>Price: $ { price}</strong>
             </div>
         </div>

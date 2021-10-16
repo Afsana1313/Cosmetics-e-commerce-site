@@ -20,10 +20,11 @@ const CartDisplay = ({cartValue, cartProduct, setShowCartDisplay} : GetCartProps
                 
             <div className='cart-list-container'>
                 <span className='close-btn-wrapper'>
+                    <span>Cart</span>
                     <CloseOutlined
                         className='close-btn'
                         onClick={()=> setShowCartDisplay()}
-                    />
+                    />                 
                 </span>
                 
                 {console.log(cartProduct)}
@@ -39,7 +40,14 @@ const CartDisplay = ({cartValue, cartProduct, setShowCartDisplay} : GetCartProps
                                 }
                             </>
                         )}
+                </div>
+                <div
+                    className='cart-list-total-cost-container'>
+                    <div className='left'>Total
                     </div>
+                    <div className='right'>{cartValue}
+                    </div>
+                </div>
             </div>
         </div>
     )
