@@ -28,8 +28,8 @@ const ProductTable = ({ data, price, productsInCart }: GetProductDataProps) => {
                             ?
                             <div className='product-table-wrapper'>
                                 {result.map((data: any) =>
-                                (
-                                    <SingleProductTable
+                                ( <>
+                                    {data?.price != "0.0" && <SingleProductTable
                                         data={data}
                                         key={data.id}
                                         setPrice={(a) => {
@@ -37,7 +37,8 @@ const ProductTable = ({ data, price, productsInCart }: GetProductDataProps) => {
                                             setTotalPrice(totalPrice + parseFloat(a))
                                         }}
                                         productsInCart={(data: any)=> productsInCart(data)}
-                                    />
+                                    />}
+                                    </>
                                 )
                                 )}
                             </div>

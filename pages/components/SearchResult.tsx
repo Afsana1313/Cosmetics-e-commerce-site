@@ -26,7 +26,7 @@ const SearchResult = () => {
                 + `${!!brand ? `&brand=${(brand as string)}` : ``} `)
              .then((data) => data.json())
                 .then((data) => {
-                   // console.log(data)
+                    console.log(data)
                     setData({result: data, loading: false})
                 })
        }
