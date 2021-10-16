@@ -16,6 +16,8 @@ const SearchResult = () => {
     const [cartValue, setCartValue] = useState<number>(0)
     const [showCartDisplay, setShowCartDisplay] = useState(false)
     const [cartData, setCartData] = useState<cartType>({} as cartType)
+    const [allProducts, setAllProducts] = useState([{}] as cartType[])
+
     useEffect(() => {
         if (true) {
             setData({result: data.result, loading: true})
@@ -29,6 +31,11 @@ const SearchResult = () => {
                 })
        }
     }, [productType, brand])
+    useEffect(() => {
+       // const aa = {allProducts}
+        setAllProducts([...allProducts, cartData])
+      // console.log(cartData)
+    },[cartData])
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setProductType(e.currentTarget.value);
     }
@@ -66,7 +73,7 @@ const SearchResult = () => {
                 </div>
                 {showCartDisplay && <CartDisplay
                     cartValue={cartValue}
-                    cartProduct={cartData}
+                    cartProduct={allProducts}
                     setShowCartDisplay={()=> setShowCartDisplay(false)}
                 />}
                 

@@ -27,7 +27,8 @@ const ProductTable = ({ data, price, productsInCart }: GetProductDataProps) => {
                          {result?.length 
                             ?
                             <div className='product-table-wrapper'>
-                                {result.map((data: any) => (
+                                {result.map((data: any) =>
+                                (
                                     <SingleProductTable
                                         data={data}
                                         key={data.id}

@@ -38,7 +38,7 @@ const SingleProductTable = ({ data, setPrice, productsInCart }: GetProps) => {
                     >{data?.brand}</span>
                 </div>
                 <div>
-                    <span>${data?.price}</span>
+                    <span>${data?.price} </span>
                 </div>
                 <div >
                     <span>{data?.product_type}</span>
