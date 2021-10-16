@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import { ShoppingCartOutlined } from '@ant-design/icons'
-import CartList from './CartList'
+import CartList from './SingleCartItem'
 
 
 type GetStyleProps = {

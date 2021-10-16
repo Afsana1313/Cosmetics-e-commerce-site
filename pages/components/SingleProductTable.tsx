@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
+import Image from 'next/image'
 
 type GetProps = {
     data: {
@@ -38,7 +39,7 @@ const SingleProductTable = ({ data, setPrice, productsInCart }: GetProps) => {
                     >{data?.brand}</span>
                 </div>
                 <div>
-                    <span>${data?.price} </span>
+                    <span>$ {data?.price} </span>
                 </div>
                 <div >
                     <span>{data?.product_type}</span>
@@ -47,9 +48,11 @@ const SingleProductTable = ({ data, setPrice, productsInCart }: GetProps) => {
             <div
                 className='single-product-add-to-cart'
                 onClick={() => {
-                    setInCart(true)
+                    if (!isInCart) {
+                        setInCart(true)
                     setPrice(data?.price)
                     productsInCart(product)
+                    }
                 }}
             >
                 <span>{ isInCart ? 'Added to Cart' : 'Add to cart'}</span>

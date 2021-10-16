@@ -31,7 +31,7 @@ const ProductTable = ({ data, price, productsInCart }: GetProductDataProps) => {
                                 ( <>
                                     {data?.price != "0.0" && <SingleProductTable
                                         data={data}
-                                        key={data.id}
+                                        key={data?.name}
                                         setPrice={(a) => {
                                             console.log(totalPrice + parseFloat(a))
                                             setTotalPrice(totalPrice + parseFloat(a))

@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import SingleCartItem from './SingleCartItem';
 import { CloseOutlined } from '@ant-design/icons';
 
 type cartProductType = {
     name: string
     price: string
     imgLink: string
+    id: number
+  
 }
 type GetCartProps = {
     cartValue: number
@@ -12,18 +15,6 @@ type GetCartProps = {
     setShowCartDisplay: () => void
 }
 const CartDisplay = ({cartValue, cartProduct, setShowCartDisplay} : GetCartProps) => {
-    //const [cartList, setCartList] = useState(false)
-    const [allProducts, setAllProducts] = useState([{}] as cartProductType[])
-    
-    /*useEffect(() => {
-        window.addEventListener('click', () => {
-            setShowCartDisplay()
-        })
-        return () => window.removeEventListener('click', () => {
-            setShowCartDisplay()
-        })
-    },[])*/
-    
     return (
         <div className='cart-list-wrapper'>
                 
@@ -37,13 +28,16 @@ const CartDisplay = ({cartValue, cartProduct, setShowCartDisplay} : GetCartProps
                 
                 {console.log(cartProduct)}
                     <div>
-                        {cartProduct.map((item) => 
-                            <div key={item.name}>
-                                
-                                {item.name}<br/>
-                                {item.price}<br/>
-                                {item.imgLink}
-                            </div>
+                        {cartProduct.map((item,index) => 
+                            <>
+                                {item.name && <SingleCartItem
+                                    key={index}
+                                    name={item.name}
+                                    price={item.price}
+                                    imgLink={item.imgLink}
+                                />
+                                }
+                            </>
                         )}
                     </div>
             </div>

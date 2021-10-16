@@ -8,6 +8,7 @@ type cartType = {
     name: string
     price: string
     imgLink: string
+    id: number
 }
 const SearchResult = () => {
     const [data, setData] = useState({result: {}, loading: false});
@@ -26,14 +27,14 @@ const SearchResult = () => {
                 + `${!!brand ? `&brand=${(brand as string)}` : ``} `)
              .then((data) => data.json())
                 .then((data) => {
-                    console.log(data)
+                  //  console.log(data)
                     setData({result: data, loading: false})
                 })
        }
     }, [productType, brand])
     useEffect(() => {
        // const aa = {allProducts}
-        setAllProducts([...allProducts, cartData])
+       cartData?.name && setAllProducts([...allProducts, cartData])
       // console.log(cartData)
     },[cartData])
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
