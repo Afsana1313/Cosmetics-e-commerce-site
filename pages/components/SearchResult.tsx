@@ -67,6 +67,7 @@ const SearchResult = () => {
                 {showCartDisplay && <CartDisplay
                     cartValue={cartValue}
                     cartProduct={cartData}
+                    setShowCartDisplay={()=> setShowCartDisplay(false)}
                 />}
                 
               </div>  

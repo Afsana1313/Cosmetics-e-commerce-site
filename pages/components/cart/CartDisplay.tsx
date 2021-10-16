@@ -1,4 +1,5 @@
-import React,{useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
+import { CloseOutlined } from '@ant-design/icons';
 
 type cartProductType = {
     name: string
@@ -8,8 +9,9 @@ type cartProductType = {
 type GetCartProps = {
     cartValue: number
     cartProduct: cartProductType
+    setShowCartDisplay: () => void
 }
-const CartDisplay = ({cartValue, cartProduct} : GetCartProps) => {
+const CartDisplay = ({cartValue, cartProduct, setShowCartDisplay} : GetCartProps) => {
     const [cartList, setCartList] = useState(false)
     const [allProducts, setAllProducts] = useState([{}] as cartProductType[])
     useEffect(() => {
@@ -19,10 +21,16 @@ const CartDisplay = ({cartValue, cartProduct} : GetCartProps) => {
         <div className='cart-list-wrapper'>
                 
             <div className='cart-list-container'>
-                
+                <span className='close-btn-wrapper'>
+                    <CloseOutlined
+                        className='close-btn'
+                        onClick={()=> setShowCartDisplay()}
+                    />
+                </span>
+                sdfgsdfg
                 {console.log(allProducts)}
                 {allProducts?.length ?
-                    <div>
+                    <div>working??
                         {allProducts.map((item) => {
                             <div key={item.name}>
                                 <h1>sfasdf</h1>
