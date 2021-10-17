@@ -13,10 +13,6 @@ type GetProductDataProps = {
 }
 const ProductTable = ({ data, price, productsInCart }: GetProductDataProps) => {
     const { result, loading } = data
-    const [totalPrice, setTotalPrice] = useState<number>(0)
-    useEffect(() => {
-        price(totalPrice)
-    }, [totalPrice])
     return (
         <div className='product-table-container'>
             {
@@ -33,8 +29,7 @@ const ProductTable = ({ data, price, productsInCart }: GetProductDataProps) => {
                                         data={data}
                                         key={data?.name}
                                         setPrice={(a) => {
-                                            console.log(totalPrice + parseFloat(a))
-                                            setTotalPrice(totalPrice + parseFloat(a))
+                                            price(parseFloat(a))
                                         }}
                                         productsInCart={(data: any)=> productsInCart(data)}
                                     />}

@@ -58,7 +58,7 @@ const SearchResult = () => {
                 <ProductTable
                     data={data}
                     price={(price) => {
-                        setCartValue(price)
+                        setCartValue(cartValue + price)
                     }}
                     productsInCart={(data: any)=> setCartData(data)}
                 />
@@ -79,10 +79,12 @@ const SearchResult = () => {
                         {
                             const newProducts = allProducts.filter(item => item.name !== name)
                             setAllProducts(newProducts)
-                            var sum: number = 0 
-                            newProducts.map(i => sum = sum + parseFloat(i.price))
-                            console.log(sum)
-                            setCartValue(sum)
+                            const a = cartValue-parseFloat(price)
+                            setCartValue(parseFloat(a.toFixed(2)))
+                            // var sum: number = 0 
+                            // newProducts.map(i => sum = sum + parseFloat(i.price))
+                            // console.log(sum)
+                            // setCartValue(sum)
                            // console.log(cartValue)
                         }
                         }
