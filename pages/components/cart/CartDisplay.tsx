@@ -13,8 +13,9 @@ type GetCartProps = {
     cartValue: number
     cartProduct: cartProductType[]
     setShowCartDisplay: () => void
+    removeItem: (name: string, price: string) => void
 }
-const CartDisplay = ({cartValue, cartProduct, setShowCartDisplay} : GetCartProps) => {
+const CartDisplay = ({cartValue, cartProduct, setShowCartDisplay, removeItem} : GetCartProps) => {
     return (
         <div className='cart-list-wrapper'>
                 
@@ -36,6 +37,7 @@ const CartDisplay = ({cartValue, cartProduct, setShowCartDisplay} : GetCartProps
                                     name={item.name}
                                     price={item.price}
                                     imgLink={item.imgLink}
+                                    removeItem={(e, name, price)=> removeItem(name,price)}
                                 />
                                 }
                             </>

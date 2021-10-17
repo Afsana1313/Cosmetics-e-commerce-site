@@ -33,9 +33,7 @@ const SearchResult = () => {
        }
     }, [productType, brand])
     useEffect(() => {
-       // const aa = {allProducts}
        cartData?.name && setAllProducts([...allProducts, cartData])
-      // console.log(cartData)
     },[cartData])
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setProductType(e.currentTarget.value);
@@ -72,11 +70,25 @@ const SearchResult = () => {
                         cartValue={cartValue}
                         />
                 </div>
-                {showCartDisplay && <CartDisplay
+                {
+                    showCartDisplay && <CartDisplay
                     cartValue={cartValue}
                     cartProduct={allProducts}
-                    setShowCartDisplay={()=> setShowCartDisplay(false)}
-                />}
+                        setShowCartDisplay={() => setShowCartDisplay(false)}
+                        removeItem={(name,price) => 
+                        {
+                            const newProducts = allProducts.filter(item => item.name !== name)
+                            setAllProducts(newProducts)
+                            var sum: number = 0 
+                            newProducts.map(i => sum = sum + parseFloat(i.price))
+                            console.log(sum)
+                            setCartValue(sum)
+                           // console.log(cartValue)
+                        }
+                        }
+                        
+                />
+                }
                 
               </div>  
                          
